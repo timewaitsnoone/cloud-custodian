@@ -3,5 +3,7 @@
 
 ResourceMap = {
     "huaweicloud.volume": "c7n_huaweicloud.resources.volume.Volume",
-    "huaweicloud.config-tracker": "c7n_huaweicloud.resources.config.ConfigTracker"
+    "huaweicloud.org-policy": "c7n_huaweicloud.resources.organizations.OrgPolicy",
+    "huaweicloud.org-account": "c7n_huaweicloud.resources.organizations.OrgAccount",
+    "huaweicloud.org-unit": "c7n_huaweicloud.resources.organizations.OrgUnit"
 }

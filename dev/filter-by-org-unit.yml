@@ -1,0 +1,14 @@
+policies:
+  - name: org-units-by-parent-ou
+    resource: huaweicloud.org-unit
+    filters:
+      - type: org-unit
+        key: Name
+        value: ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe
+
+  - name: org-accounts-by-parent-ou
+    resource: huaweicloud.org-account
+    filters:
+      - type: org-unit
+        key: Name
+        value: ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe

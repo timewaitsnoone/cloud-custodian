@@ -1,0 +1,10 @@
+policies:
+  - name: filter_by_policy
+    resource: huaweicloud.org-account
+    filters:
+      - type: policy
+        policy-type: service_control_policy
+        # inherited: True
+        count: 0
+        attrs:
+         - name: scp-3j5xtatc

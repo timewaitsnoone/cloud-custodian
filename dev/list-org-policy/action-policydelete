@@ -1,0 +1,127 @@
+{
+"succeeded_resources": [
+{
+"is_builtin": false,
+"description": "",
+"id": "p-6hn6nwkkvq2g9zy32o98kxxx7yz42y5u",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-6hn6nwkkvq2g9zy32o98kxxx7yz42y5u",
+"name": "scp-ngnlckmi",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-9owwsfhwi08efg44f8otk7t633bnxg12",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-9owwsfhwi08efg44f8otk7t633bnxg12",
+"name": "scp-4nw0hezx",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-aiexfminlxwdhi3hh9bc7nthx72fmjbw",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-aiexfminlxwdhi3hh9bc7nthx72fmjbw",
+"name": "scp-3qg8ooxr",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-cka13bxevxocpbi9rw7tee8ch8w0hfcv",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-cka13bxevxocpbi9rw7tee8ch8w0hfcv",
+"name": "scp-40srfz6n",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-fimbfw82upxz3xr8g0empqwol5sf8pt3",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-fimbfw82upxz3xr8g0empqwol5sf8pt3",
+"name": "scp-dec27pbu",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-hx6wedi5glocyomkl4bp2xu2habx10m1",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-hx6wedi5glocyomkl4bp2xu2habx10m1",
+"name": "scp-3j5xtatc",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-lbvtawn9s531mffqkx7g7ak5eramc0go",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-lbvtawn9s531mffqkx7g7ak5eramc0go",
+"name": "scp-vje3b72l",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-q6f9dqjj1ok4ectuuruy57cf783iau27",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-q6f9dqjj1ok4ectuuruy57cf783iau27",
+"name": "scp-16zezz69",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-v3dlx6mk29ifizvypfrkgo6m7wokocmh",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-v3dlx6mk29ifizvypfrkgo6m7wokocmh",
+"name": "scp-e4zgke09",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+},
+{
+"is_builtin": false,
+"description": "",
+"id": "p-wbptuc3leddda5jmnqq78j1rjnv4dz9h",
+"urn": "organizations::be4d8afe35644849816dcbaa3072cf36:policy:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/service_control_policy/p-wbptuc3leddda5jmnqq78j1rjnv4dz9h",
+"name": "scp-qu0ed44p",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+}
+],
+"failed_resources": [
+{
+"is_builtin": true,
+"description": "Full Access,",
+"id": "p-full_access",
+"urn": "organizations::system:policy:service_control_policy/p-full_access",
+"name": "FullAccess",
+"type": "service_control_policy",
+"c7n:MatchedFilters": [
+"type"
+]
+}
+]
+}

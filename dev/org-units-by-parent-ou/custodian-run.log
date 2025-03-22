@@ -1,0 +1,784 @@
+2025-03-22 09:32:03,196 - custodian.huaweicloud.query - INFO - client res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 09:32:03,206 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : <c7n_huaweicloud.resources.organizations.OrgUnitFilter object at 0x000002A237CD20D0>
+2025-03-22 09:32:03,207 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 288, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 331, in __call__
+    for pid in r["Parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'Parents'
+2025-03-22 09:34:22,101 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : <c7n_huaweicloud.resources.organizations.OrgUnit object at 0x000001EE3AD71D10>
+2025-03-22 09:34:22,102 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 288, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 331, in __call__
+    for pid in r["Parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'Parents'
+2025-03-22 09:35:17,262 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : {'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi': {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, 'ou-iboyul26waddh86hhipw97sbh3masg94': {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0': {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i': {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9': {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s': {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}}
+2025-03-22 09:35:17,263 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : org-unit
+2025-03-22 09:35:17,264 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 289, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    for pid in r["Parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'Parents'
+2025-03-22 09:47:48,668 - custodian.huaweicloud.query - INFO - client res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 09:47:48,677 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.ou_map : {'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi': {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, 'ou-iboyul26waddh86hhipw97sbh3masg94': {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0': {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i': {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9': {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s': {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}}
+2025-03-22 09:47:48,679 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.manager.type  : org-unit
+2025-03-22 09:47:48,679 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter resources : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 09:47:48,680 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter event : None
+2025-03-22 09:47:48,681 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 334, in __call__
+    for pid in r["Parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'Parents'
+2025-03-22 09:51:28,102 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.ou_map : {'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi': {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, 'ou-iboyul26waddh86hhipw97sbh3masg94': {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0': {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i': {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9': {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s': {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}}
+2025-03-22 09:51:28,103 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.manager.type  : org-unit
+2025-03-22 09:51:28,103 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter resources : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 09:51:28,105 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter event : None
+2025-03-22 09:51:28,105 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 334, in __call__
+    for pid in r["Parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'Parents'
+2025-03-22 09:52:25,543 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 334, in __call__
+    for pid in r["Parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'Parents'
+2025-03-22 10:05:30,714 - custodian.huaweicloud.query - INFO - client res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 10:05:30,722 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:05:30,724 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 335, in __call__
+    for pid in r["parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'parents'
+2025-03-22 10:26:37,497 - custodian.huaweicloud.query - INFO - client res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 10:26:37,507 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:26:37,508 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 335, in __call__
+    for pid in r["parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'parents'
+2025-03-22 10:27:03,208 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:27:03,209 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 335, in __call__
+    for pid in r["parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'parents'
+2025-03-22 10:28:07,825 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:28:07,825 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:28:07,828 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 292, in process
+    return super().process(resources, event)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 336, in __call__
+    for pid in r["parents"]:
+               ~^^^^^^^^^^^
+KeyError: 'parents'
+2025-03-22 10:41:02,693 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:41:02,700 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:41:02,700 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 10:41:02,701 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 10:41:02,701 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 10:41:02,701 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 10:41:02,701 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 10:41:02,702 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 10:41:02,702 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 10:41:02,702 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 10:41:02,702 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : []
+2025-03-22 10:41:02,703 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:0 time:0.01
+2025-03-22 10:57:38,605 - custodian.huaweicloud.query - INFO - client res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 10:57:38,614 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:57:38,615 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:57:38,615 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 294, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 330, in __call__
+    return self.process_entity(r)
+           ~~~~~~~~~~~~~~~~~~~^^^
+TypeError: OrgUnitFilter.process_entity() missing 1 required positional argument: 'event'
+2025-03-22 10:58:44,671 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:58:44,672 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 10:58:44,673 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 294, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 330, in __call__
+    return self.process_entity(r)
+           ~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 345, in process_entity
+    self.client.list_entities(request)
+    ^^^^^^^^^^^
+AttributeError: 'OrgUnitFilter' object has no attribute 'client'
+2025-03-22 11:00:29,931 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:00:30,651 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources,client, event)
+TypeError: ValueFilter.process() takes from 2 to 3 positional arguments but 4 were given
+2025-03-22 11:02:45,295 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:02:46,026 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:02:47,125 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request).get("entities")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'get'
+2025-03-22 11:03:31,203 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:03:31,953 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:03:33,103 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request).get("entities")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'get'
+2025-03-22 11:04:01,543 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:04:02,260 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:04:03,344 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request).get("entities")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'get'
+2025-03-22 11:04:45,255 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:04:45,966 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:04:47,096 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : {"entities": [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}], "page_info": {"current_count": 1}}
+2025-03-22 11:04:47,098 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.length==0:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'length'
+2025-03-22 11:05:33,266 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:05:33,998 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:05:34,995 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request)['entities']
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'ListEntitiesResponse' object is not subscriptable
+2025-03-22 11:06:56,683 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:06:57,357 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:06:58,544 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:06:58,546 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.length==0:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'length'
+2025-03-22 11:07:31,241 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:07:31,950 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:07:33,017 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:07:33,018 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.len()==0:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'len'
+2025-03-22 11:07:51,568 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:07:52,278 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:07:53,337 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:07:53,339 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.len()==0:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'len'
+2025-03-22 11:08:08,556 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:08:09,345 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:08:10,375 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:08:10,376 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.len()==0:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'len'
+2025-03-22 11:09:21,834 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:09:22,552 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:09:23,661 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:09:23,662 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 352, in process_entity
+    if parent_info.get(0).id == self.data.value:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2025-03-22 11:09:54,784 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:09:55,508 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:09:56,545 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:09:56,546 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 352, in process_entity
+    if parent_info[0].id == self.data.value:
+                            ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'value'. Did you mean: 'values'?
+2025-03-22 11:11:10,827 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:11:11,551 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:11:12,576 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:11:12,577 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 356, in process_entity
+    self.targetCache[parent_info[0].id]=self.process_entity(parent_info,client)
+                                        ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 346, in process_entity
+    request = ListEntitiesRequest(child_id=resource["id"])
+                                           ~~~~~~~~^^^^^^
+TypeError: list indices must be integers or slices, not str
+2025-03-22 11:12:44,710 - custodian.huaweicloud.query - INFO - client res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 11:12:44,719 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:12:44,719 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:12:45,738 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:46,234 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:46,235 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:12:47,244 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:47,708 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:47,708 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:12:48,761 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:12:49,337 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:12:49,799 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:50,264 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:50,265 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 11:12:51,260 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:12:51,694 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:52,317 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:52,317 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 11:12:53,297 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:12:53,783 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:54,225 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:54,226 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 11:12:55,192 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:55,614 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:55,615 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 11:12:56,583 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:12:57,010 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:57,494 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:57,545 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 11:12:58,512 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:12:58,940 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:12:59,379 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:12:59,380 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 11:13:00,321 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:13:00,780 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:13:00,781 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : []
+2025-03-22 11:13:00,782 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:0 time:17.54
+2025-03-22 11:16:00,870 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe'}
+2025-03-22 11:16:01,589 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:16:02,637 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:16:03,118 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:16:03,119 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:16:04,151 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:16:04,659 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:16:04,660 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:16:05,795 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:16:06,268 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:16:06,269 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 11:16:07,274 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:16:07,275 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 11:16:08,243 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:16:08,244 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 11:16:09,254 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:16:09,718 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:16:09,719 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 11:16:10,637 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:16:10,638 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 11:16:11,569 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:16:11,569 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 11:16:12,532 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:16:12,933 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:16:12,934 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}]
+2025-03-22 11:16:12,935 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:5 time:12.07
+2025-03-22 11:17:34,881 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8'}
+2025-03-22 11:17:35,660 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:17:36,694 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:36,694 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:17:37,684 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:37,684 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:17:38,692 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:17:39,165 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:17:39,607 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:39,608 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 11:17:40,595 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:17:41,043 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:41,044 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 11:17:42,079 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:17:42,573 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:42,574 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 11:17:43,641 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:43,642 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 11:17:44,584 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:17:45,016 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:45,018 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 11:17:46,139 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:17:46,568 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:46,573 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 11:17:47,701 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:47,702 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 11:17:47,703 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:9 time:12.82
+2025-03-22 11:19:45,496 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8'}
+2025-03-22 11:19:46,222 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:19:47,299 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:19:47,300 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:19:48,374 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:19:48,374 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:19:49,311 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:19:49,313 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 283, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in __call__
+    return self.process_entity(r['id'],client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 300, in process_entity
+    if parent_info[0].id == self.data['value'] or self.targetCache[parent_info[0].id]:
+                                                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61'
+2025-03-22 11:22:22,154 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8'}
+2025-03-22 11:22:22,903 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:22:23,910 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:22:23,911 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:22:25,097 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:22:25,097 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:22:26,044 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:22:26,517 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:22:26,995 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:22:26,996 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 11:22:27,946 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:22:27,946 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 11:22:29,036 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:22:29,037 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 11:22:29,990 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:22:29,991 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 11:22:31,036 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:22:31,037 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 11:22:31,988 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:22:31,989 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 11:22:32,928 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:22:32,929 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}, {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}]
+2025-03-22 11:22:32,930 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:9 time:10.78
+2025-03-22 11:23:38,088 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe'}
+2025-03-22 11:23:38,843 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:23:39,843 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:23:40,297 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:23:40,297 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:23:41,431 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:23:41,913 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:23:41,913 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:23:42,924 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:23:43,334 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:23:43,337 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 11:23:44,275 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:23:44,275 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 11:23:45,237 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:23:45,238 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 11:23:46,252 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:23:46,689 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:23:46,689 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 11:23:47,580 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:23:47,580 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 11:23:48,585 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "Console团队", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:23:48,585 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 11:23:49,617 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:23:50,159 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:23:50,160 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}]
+2025-03-22 11:23:50,161 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:5 time:12.07
+2025-03-22 11:24:20,907 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe'}
+2025-03-22 11:24:21,584 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'Console团队', 'created_at': '2023-07-20T02:09:29+00:00'}
+2025-03-22 11:24:22,603 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {}
+2025-03-22 11:24:23,112 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {}
+2025-03-22 11:24:23,113 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}
+2025-03-22 11:24:24,108 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False}
+2025-03-22 11:24:24,560 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False}
+2025-03-22 11:24:24,561 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}
+2025-03-22 11:24:25,582 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False}
+2025-03-22 11:24:26,048 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False}
+2025-03-22 11:24:26,053 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}
+2025-03-22 11:24:27,234 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:27,234 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}
+2025-03-22 11:24:28,183 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:28,183 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}
+2025-03-22 11:24:29,161 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:29,666 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:29,667 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}
+2025-03-22 11:24:30,650 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:30,651 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}
+2025-03-22 11:24:31,580 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:31,581 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM拨测账号', 'created_at': '2023-07-28T06:44:17+00:00'}
+2025-03-22 11:24:32,540 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:32,967 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:32,968 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}]
+2025-03-22 11:24:32,969 - custodian.policy - INFO - policy:org-units-by-parent-ou resource:huaweicloud.org-unit region: count:5 time:12.06

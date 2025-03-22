@@ -1,0 +1,79 @@
+{
+  "policy": {
+    "name": "filter_by_policy",
+    "resource": "huaweicloud.org-account",
+    "filters": [
+      {
+        "type": "policy",
+        "policy-type": "service_control_policy",
+        "inherited": true,
+        "count": 0,
+        "attrs": [
+          {
+            "name": "scp-3j5xtatc"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "0.9.43",
+  "execution": {
+    "id": "db55e4b9-8c60-48bc-8f01-ac33c9734ec1",
+    "start": 1742639731.732159,
+    "end_time": 1742639739.2322474,
+    "duration": 7.500088453292847
+  },
+  "config": {
+    "region": "",
+    "regions": [],
+    "cache": "~/.cache/cloud-custodian.cache",
+    "profile": null,
+    "account_id": null,
+    "assume_role": null,
+    "session_policy": null,
+    "external_id": null,
+    "log_group": null,
+    "tracer": null,
+    "metrics_enabled": null,
+    "metrics": null,
+    "output_dir": ".\\dev\\",
+    "cache_period": 15,
+    "dryrun": false,
+    "authorization_file": null,
+    "subparser": "run",
+    "config": null,
+    "configs": [
+      ".\\dev\\filter-by-policy.yml"
+    ],
+    "policy_filters": [],
+    "resource_types": [],
+    "verbose": null,
+    "quiet": null,
+    "debug": false,
+    "skip_validation": false,
+    "command": "c7n.commands.run",
+    "vars": null
+  },
+  "sys-stats": {},
+  "api-stats": {},
+  "metrics": [
+    {
+      "MetricName": "ResourceCount",
+      "Timestamp": "2025-03-22T18:35:39.231722",
+      "Value": 1,
+      "Unit": "Count"
+    },
+    {
+      "MetricName": "ResourceTime",
+      "Timestamp": "2025-03-22T18:35:39.231733",
+      "Value": 7.4990270137786865,
+      "Unit": "Seconds"
+    },
+    {
+      "MetricName": "ActionTime",
+      "Timestamp": "2025-03-22T18:35:39.232237",
+      "Value": 3.814697265625e-06,
+      "Unit": "Seconds"
+    }
+  ]
+}

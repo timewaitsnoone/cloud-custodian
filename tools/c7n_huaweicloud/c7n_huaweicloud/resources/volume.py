@@ -20,7 +20,7 @@ class Volume(QueryResourceManager):
         service = 'evs'
         enum_spec = ("list_volumes", 'volumes', 'offset')
         id = 'id'
-        tag_resource_type = 'disk'
+        tag = True
 
 
 @Volume.action_registry.register("delete")

@@ -1,0 +1,40 @@
+policies:
+  - name: create-and-attach-scp
+    resource: huaweicloud.org-unit
+    filters:
+      - type: value
+        key: id
+        value: ^ou-[0-9a-z]{8,32}$
+        op: regex
+    actions:
+      - type: set-policy
+        policy-type: service_control_policy
+        name: RestrictedForOU
+        contents:
+          Version: "5.0"
+          Statement:
+            - Sid: RestrictedForOU
+              Effect: Deny
+              Action:
+                - "ecs:*"
+              Resource:
+                - "*"
+  - name: create-and-attach-scp-for-account
+    resource: huaweicloud.org-account
+    filters:
+      - type: value
+        key: status
+        value: active
+    actions:
+      - type: set-policy
+        policy-type: service_control_policy
+        name: RestrictedForAccount
+        contents:
+          Version: "5.0"
+          Statement:
+            - Sid: RestrictedForAccount
+              Effect: Deny
+              Action:
+                - "ecs:*"
+              Resource:
+                - "*"

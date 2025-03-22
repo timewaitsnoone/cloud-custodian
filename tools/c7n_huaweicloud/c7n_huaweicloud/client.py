@@ -6,17 +6,15 @@ import os
 import sys
 
 from huaweicloudsdkcore.auth.credentials import BasicCredentials
-from huaweicloudsdkconfig.v1 import ConfigClient, ShowTrackerConfigRequest
-from huaweicloudsdkconfig.v1.region.config_region import ConfigRegion
-from huaweicloudsdkcore.auth.credentials import BasicCredentials, GlobalCredentials
 from huaweicloudsdkecs.v2 import *
 from huaweicloudsdkevs.v2 import *
 from huaweicloudsdkevs.v2.region.evs_region import EvsRegion
-from huaweicloudsdkiam.v3 import IamClient
-from huaweicloudsdkiam.v3.region.iam_region import IamRegion
 from huaweicloudsdkvpc.v2 import *
 from huaweicloudsdktms.v1 import *
+from huaweicloudsdkorganizations.v1 import *
 from huaweicloudsdktms.v1.region.tms_region import TmsRegion
+from huaweicloudsdkorganizations.v1.region import organizations_region
+from huaweicloudsdkcore.auth.credentials import GlobalCredentials
 
 log = logging.getLogger('custodian.huaweicloud.client')
 
@@ -41,7 +39,7 @@ class Session:
             sys.exit(1)
 
     def client(self, service):
-        credentials = BasicCredentials(self.ak, self.sk, os.getenv('HUAWEI_PROJECT_ID'))
+        credentials = BasicCredentials(self.ak, self.sk)
         if service == 'vpc':
             client = VpcClient.new_builder() \
                 .with_credentials(credentials) \
@@ -63,18 +61,12 @@ class Session:
                 .with_credentials(globalCredentials) \
                 .with_region(TmsRegion.value_of(self.region)) \
                 .build()
-        elif service == 'iam':
+        elif service in ['org-policy','org-unit','org-account','organizations']:
             globalCredentials = GlobalCredentials(self.ak, self.sk)
-            client = IamClient.new_builder() \
+            client = OrganizationsClient.new_builder() \
                 .with_credentials(globalCredentials) \
-                .with_region(IamRegion.value_of(self.region)) \
-                .build()
-        elif service == 'config':
-            globalCredentials = GlobalCredentials(self.ak, self.sk)
-            client = ConfigClient.new_builder() \
-                .with_credentials(globalCredentials) \
-                .with_region(ConfigRegion.value_of(self.region)) \
-                .build()
+                .with_region(organizations_region.OrganizationsRegion.CN_NORTH_4) \
+                .build()    
 
         return client
 
@@ -83,7 +75,15 @@ class Session:
             request = ListVpcsRequest()
         elif service == 'evs':
             request = ListVolumesRequest()
-        elif service == 'config':
-            request = ShowTrackerConfigRequest()
+        elif service == 'org-policy':
+            request = ListPoliciesRequest()
+        elif service == 'org-unit':
+            request = ListOrganizationalUnitsRequest()
+        elif service == 'org-account':
+            request = ListAccountsRequest()
+        # elif service == 'ram':
+        #     request = SearchResourceShareAssociationsRequest()
+        #     request.body = SearchResourceShareAssociationsReqBody()
+        #     request.body.association_type = "principals"
 
         return request

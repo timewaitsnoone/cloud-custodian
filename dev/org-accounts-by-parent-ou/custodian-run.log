@@ -1,0 +1,909 @@
+2025-03-22 09:32:04,146 - custodian.huaweicloud.query - INFO - client res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 09:32:04,154 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : <c7n_huaweicloud.resources.organizations.OrgUnitFilter object at 0x000002A237CE4D60>
+2025-03-22 09:32:04,860 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 287, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 303, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:25967f734b5d3323bf001a37023e7fee,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 09:34:22,114 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : <c7n_huaweicloud.resources.organizations.OrgAccount object at 0x000001EE3AD725D0>
+2025-03-22 09:34:23,668 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 287, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 303, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:a6f8af211ccb5070055a34465e9921b1,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 09:35:17,280 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : {'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'ConsoleÍÅ¶Ó', 'created_at': '2023-07-20T02:09:29+00:00'}, 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi': {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, 'ou-iboyul26waddh86hhipw97sbh3masg94': {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0': {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i': {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9': {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s': {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM²¦²âÕËºÅ', 'created_at': '2023-07-28T06:44:17+00:00'}}
+2025-03-22 09:35:17,281 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self : org-account
+2025-03-22 09:35:18,843 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 288, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 304, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:3875071bbaf58496e72c42cf87a93b7b,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 09:47:49,805 - custodian.huaweicloud.query - INFO - client res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 09:47:49,813 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.ou_map : {'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'ConsoleÍÅ¶Ó', 'created_at': '2023-07-20T02:09:29+00:00'}, 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi': {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, 'ou-iboyul26waddh86hhipw97sbh3masg94': {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0': {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i': {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9': {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s': {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM²¦²âÕËºÅ', 'created_at': '2023-07-28T06:44:17+00:00'}}
+2025-03-22 09:47:49,815 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.manager.type  : org-account
+2025-03-22 09:47:49,815 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter resources : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 09:47:49,815 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter event : None
+2025-03-22 09:47:50,771 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 290, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 306, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:5e2baf4629a0fd9c4b461040887e9c24,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 09:51:28,119 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.ou_map : {'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': {'id': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe', 'name': 'ConsoleÍÅ¶Ó', 'created_at': '2023-07-20T02:09:29+00:00'}, 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi': {'id': 'ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi', 'name': '0312001', 'created_at': '2024-03-12T14:22:36+00:00'}, 'ou-iboyul26waddh86hhipw97sbh3masg94': {'id': 'ou-iboyul26waddh86hhipw97sbh3masg94', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-iboyul26waddh86hhipw97sbh3masg94', 'name': '55555', 'created_at': '2024-03-12T14:36:45+00:00'}, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': {'id': 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61', 'name': 'rrr333', 'created_at': '2024-03-12T14:35:49+00:00'}, 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0': {'id': 'ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-r4o9x4lx74qs310trcozj0e9k7r50oh0', 'name': 'test3', 'created_at': '2024-01-04T13:38:28+00:00'}, 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i': {'id': 'ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s0lm7bpry04gs574vy43xet6wluqtl6i', 'name': 'q0312001', 'created_at': '2024-03-12T14:34:48+00:00'}, 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9': {'id': 'ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-s5hdjvol2deqr9tzxby0urqa7ha8q0n9', 'name': 'test1', 'created_at': '2024-01-04T13:37:54+00:00'}, 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s': {'id': 'ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-tduzv40et3m0scbr0j1spthpr4ay2a8s', 'name': 'test4ou-tduzv40et3m0scthpr4ay2a8s3333333333333333333333333333555', 'created_at': '2024-01-04T13:38:36+00:00'}, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': {'id': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:ou:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/ou-wpl4rl17z5v9puqohfeqo8brezsta85t', 'name': 'IAM²¦²âÕËºÅ', 'created_at': '2023-07-28T06:44:17+00:00'}}
+2025-03-22 09:51:28,122 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.manager.type  : org-account
+2025-03-22 09:51:28,123 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter resources : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 09:51:28,123 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter event : None
+2025-03-22 09:51:29,771 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 290, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 306, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:11504cc8053128d15bc5e3620d37817b,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 09:52:27,136 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 290, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 306, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:b99606b425405c23276094aa306e95ad,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 10:05:31,686 - custodian.huaweicloud.query - INFO - client res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 10:05:32,427 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 290, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 306, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:eea7496f9bc9fe4f2e823bc8468aa42c,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 10:26:38,627 - custodian.huaweicloud.query - INFO - client res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 10:26:39,479 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 290, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 306, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:0b941cfbb8dfa2567128a053a8426ba6,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 10:27:04,737 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 290, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 306, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:02f1040e610e5378220fd2b6c5a74c44,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 10:28:07,839 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:28:09,327 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 127, in response_hook
+    resp.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\requests\models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=8e5fe930d8454674a47c67abfb72e02c
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in process
+    self.process_accounts(resources, event)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 307, in process_accounts
+    client.list_entities(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 1485, in list_entities
+    return self._call_api(**http_info)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkorganizations\v1\organizations_client.py", line 4010, in _call_api
+    return self.do_http_request(**kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 480, in do_http_request
+    response = self._do_http_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\client.py", line 531, in _do_http_request_sync
+    response = self._http_client.do_request_sync(request)
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 100, in do_request_sync
+    self.response_error_hook_factory()(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\http\http_client.py", line 129, in response_hook
+    self._exception_handler.handle_exception(httpError.request, httpError.response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\custodian\Lib\site-packages\huaweicloudsdkcore\exceptions\exception_handler.py", line 75, in handle_exception
+    raise exceptions.ClientRequestException(response.status_code, sdk_error) if response.status_code < 500 \
+        else exceptions.ServerResponseException(response.status_code, sdk_error)
+huaweicloudsdkcore.exceptions.exceptions.ClientRequestException: ClientRequestException - {status_code:400,request_id:4948724c38f5762f843589ac6da88fc2,error_code:SYS.0400,error_msg:Bad request: parent_id must be an string must match "^(?:r-[0-9a-z]{4,32}|ou-[0-9a-z]{8,32})$",encoded_authorization_message:None }
+2025-03-22 10:41:02,707 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:41:02,711 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 10:41:02,712 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 10:41:02,713 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 10:41:02,713 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:2 time:0.01
+2025-03-22 10:57:39,634 - custodian.huaweicloud.query - INFO - client res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 10:57:39,643 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:57:39,644 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 10:57:39,644 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 294, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 330, in __call__
+    return self.process_entity(r)
+           ~~~~~~~~~~~~~~~~~~~^^^
+TypeError: OrgUnitFilter.process_entity() missing 1 required positional argument: 'event'
+2025-03-22 10:58:44,685 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 10:58:44,685 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 10:58:44,687 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 294, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 330, in __call__
+    return self.process_entity(r)
+           ~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 345, in process_entity
+    self.client.list_entities(request)
+    ^^^^^^^^^^^
+AttributeError: 'OrgUnitFilter' object has no attribute 'client'
+2025-03-22 11:00:30,658 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:00:30,659 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources,client, event)
+TypeError: ValueFilter.process() takes from 2 to 3 positional arguments but 4 were given
+2025-03-22 11:02:47,135 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:02:47,136 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:02:48,205 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request).get("entities")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'get'
+2025-03-22 11:03:33,114 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:03:33,114 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:03:34,329 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request).get("entities")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'get'
+2025-03-22 11:04:03,355 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:04:03,356 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:04:04,398 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request).get("entities")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'get'
+2025-03-22 11:04:47,108 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:04:47,109 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:04:48,163 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : {"entities": [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}], "page_info": {"current_count": 1}}
+2025-03-22 11:04:48,165 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.length==0:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'ListEntitiesResponse' object has no attribute 'length'
+2025-03-22 11:05:35,005 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:05:35,005 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:05:36,221 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 348, in process_entity
+    parent_info = client.list_entities(request)['entities']
+                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'ListEntitiesResponse' object is not subscriptable
+2025-03-22 11:06:58,556 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:06:58,557 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:06:59,628 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:06:59,629 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.length==0:
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'length'
+2025-03-22 11:07:33,030 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:07:33,031 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:07:33,993 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:07:33,994 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.len()==0:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'len'
+2025-03-22 11:07:53,350 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:07:53,350 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:07:54,430 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:07:54,431 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.len()==0:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'len'
+2025-03-22 11:08:10,386 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:08:10,387 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:08:11,365 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:08:11,366 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 350, in process_entity
+    if parent_info.len()==0:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'len'
+2025-03-22 11:09:23,673 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:09:23,673 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:09:24,709 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:09:24,711 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 352, in process_entity
+    if parent_info.get(0).id == self.data.value:
+       ^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+2025-03-22 11:09:56,557 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:09:56,557 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:09:57,725 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:09:57,726 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 352, in process_entity
+    if parent_info[0].id == self.data.value:
+                            ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'value'. Did you mean: 'values'?
+2025-03-22 11:11:12,587 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:11:12,587 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:11:13,609 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:11:13,610 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:11:14,594 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "55555", "id": "ou-iboyul26waddh86hhipw97sbh3masg94", "type": "organizational_unit"}]
+2025-03-22 11:11:14,595 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 295, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 332, in __call__
+    return self.process_entity(r,client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 356, in process_entity
+    self.targetCache[parent_info[0].id]=self.process_entity(parent_info,client)
+                                        ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 346, in process_entity
+    request = ListEntitiesRequest(child_id=resource["id"])
+                                           ~~~~~~~~^^^^^^
+TypeError: list indices must be integers or slices, not str
+2025-03-22 11:13:01,539 - custodian.huaweicloud.query - INFO - client res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 11:13:01,547 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'}
+2025-03-22 11:13:01,548 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:13:02,591 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:13:02,592 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:13:03,580 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "55555", "id": "ou-iboyul26waddh86hhipw97sbh3masg94", "type": "organizational_unit"}]
+2025-03-22 11:13:04,016 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:13:04,477 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "ConsoleÍÅ¶Ó", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:13:04,929 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:13:05,368 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:13:05,369 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}]
+2025-03-22 11:13:05,369 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:1 time:4.59
+2025-03-22 11:16:12,938 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe'}
+2025-03-22 11:16:12,939 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:16:13,887 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:16:14,322 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:16:14,800 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:16:14,807 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:16:15,896 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "55555", "id": "ou-iboyul26waddh86hhipw97sbh3masg94", "type": "organizational_unit"}]
+2025-03-22 11:16:16,364 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:16:16,846 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "ConsoleÍÅ¶Ó", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:16:16,847 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 11:16:16,847 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:1 time:3.91
+2025-03-22 11:17:47,707 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8'}
+2025-03-22 11:17:47,707 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:17:48,677 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:17:49,085 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:49,123 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:17:50,487 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "55555", "id": "ou-iboyul26waddh86hhipw97sbh3masg94", "type": "organizational_unit"}]
+2025-03-22 11:17:50,947 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:17:51,391 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "ConsoleÍÅ¶Ó", "id": "ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe", "type": "organizational_unit"}]
+2025-03-22 11:17:52,397 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:17:52,398 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 11:17:52,399 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:2 time:4.69
+2025-03-22 11:19:49,322 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8'}
+2025-03-22 11:19:49,322 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:19:50,314 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:19:50,315 - custodian.output - ERROR - Error while executing policy
+Traceback (most recent call last):
+  File "C:\custodian\cloud-custodian\c7n\policy.py", line 330, in run
+    resources = self.policy.resource_manager.resources()
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\query.py", line 198, in resources
+    resources = self.filter_resources(resources)
+  File "C:\custodian\cloud-custodian\c7n\manager.py", line 113, in filter_resources
+    resources = f.process(resources, event)
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 283, in process
+    res=super().process(resources, event)
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 600, in process
+    return super(ValueFilter, self).process(resources, event)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\c7n\filters\core.py", line 205, in process
+    return list(filter(self, resources))
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 291, in __call__
+    return self.process_entity(r['id'],client)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\custodian\cloud-custodian\tools\c7n_huaweicloud\c7n_huaweicloud\resources\organizations.py", line 300, in process_entity
+    if parent_info[0].id == self.data['value'] or self.targetCache[parent_info[0].id]:
+                                                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t'
+2025-03-22 11:22:32,933 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8'}
+2025-03-22 11:22:32,933 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:22:33,874 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:22:34,277 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:22:34,280 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:22:35,283 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "55555", "id": "ou-iboyul26waddh86hhipw97sbh3masg94", "type": "organizational_unit"}]
+2025-03-22 11:22:35,730 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:22:35,731 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}, {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 11:22:35,731 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:2 time:2.80
+2025-03-22 11:23:50,163 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe'}
+2025-03-22 11:23:50,163 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:23:51,164 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "IAM²¦²âÕËºÅ", "id": "ou-wpl4rl17z5v9puqohfeqo8brezsta85t", "type": "organizational_unit"}]
+2025-03-22 11:23:51,736 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "root", "id": "r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8", "type": "root"}]
+2025-03-22 11:23:52,512 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : []
+2025-03-22 11:23:52,512 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:23:53,443 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "55555", "id": "ou-iboyul26waddh86hhipw97sbh3masg94", "type": "organizational_unit"}]
+2025-03-22 11:23:53,882 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest list_entities : [{"name": "rrr333", "id": "ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61", "type": "organizational_unit"}]
+2025-03-22 11:23:53,883 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 11:23:53,883 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:1 time:3.72
+2025-03-22 11:24:32,972 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter self.data : {'type': 'org-unit', 'key': 'Name', 'value': 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe'}
+2025-03-22 11:24:32,972 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': '8e5fe930d8454674a47c67abfb72e02c', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/8e5fe930d8454674a47c67abfb72e02c', 'join_method': 'invited', 'status': 'active', 'joined_at': '2023-07-20T02:07:56+00:00', 'name': 'hwstaff_intl_tiny'}
+2025-03-22 11:24:33,983 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:34,453 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:34,902 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True}
+2025-03-22 11:24:34,903 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter __call__ : {'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}
+2025-03-22 11:24:35,900 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': False}
+2025-03-22 11:24:36,344 - custodian.huaweicloud.resources.organizations - INFO - ListEntitiesRequest self.targetCache : {'r-rwbmdmcs0bon8ypgx9a5s5u3zlcabve8': False, 'ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe': True, 'ou-karwoe0a7h4ldm0w2b8meuwwc5rhtg61': True, 'ou-wpl4rl17z5v9puqohfeqo8brezsta85t': False}
+2025-03-22 11:24:36,345 - custodian.huaweicloud.resources.organizations - INFO - OrgUnitFilter res : [{'id': 'be4d8afe35644849816dcbaa3072cf36', 'urn': 'organizations::be4d8afe35644849816dcbaa3072cf36:account:o-wyla9th3pyv5ni3z8ud554k23jvrr22e/be4d8afe35644849816dcbaa3072cf36', 'join_method': 'created', 'status': 'active', 'joined_at': '2023-07-20T01:01:22+00:00', 'name': 'ResourceGovernanceTest001'}]
+2025-03-22 11:24:36,345 - custodian.policy - INFO - policy:org-accounts-by-parent-ou resource:huaweicloud.org-account region: count:1 time:3.37
