@@ -5,25 +5,17 @@ import logging
 import os
 import sys
 
-from huaweicloudsdkconfig.v1 import ConfigClient, ShowTrackerConfigRequest
-from huaweicloudsdkconfig.v1.region.config_region import ConfigRegion
-from huaweicloudsdkcore.auth.credentials import BasicCredentials, GlobalCredentials
 from huaweicloudsdkecs.v2 import EcsClient
 from huaweicloudsdkecs.v2.region.ecs_region import EcsRegion
 from huaweicloudsdkevs.v2 import EvsClient, ListVolumesRequest
 from huaweicloudsdkevs.v2.region.evs_region import EvsRegion
-from huaweicloudsdkiam.v3 import IamClient
-from huaweicloudsdkiam.v3.region.iam_region import IamRegion
 from huaweicloudsdkvpc.v2 import VpcClient, ListVpcsRequest
 from huaweicloudsdkvpc.v2.region.vpc_region import VpcRegion
 from huaweicloudsdktms.v1 import TmsClient
 from huaweicloudsdktms.v1.region.tms_region import TmsRegion
-from huaweicloudsdkdeh.v1 import DeHClient, ListDedicatedHostsRequest
-from huaweicloudsdkdeh.v1.region.deh_region import DeHRegion
-from huaweicloudsdkces.v2 import CesClient, ListAlarmRulesRequest
-from huaweicloudsdkces.v2.region.ces_region import CesRegion
-from huaweicloudsdksmn.v2 import SmnClient
-from huaweicloudsdksmn.v2.region.smn_region import SmnRegion
+from huaweicloudsdkorganizations.v1 import *
+from huaweicloudsdkorganizations.v1.region import organizations_region
+from huaweicloudsdkcore.auth.credentials import GlobalCredentials
 
 log = logging.getLogger('custodian.huaweicloud.client')
 
@@ -52,7 +44,7 @@ class Session:
             self.tms_region = 'cn-north-4'
 
     def client(self, service):
-        credentials = BasicCredentials(self.ak, self.sk, os.getenv('HUAWEI_PROJECT_ID'))
+        credentials = BasicCredentials(self.ak, self.sk)
         if service == 'vpc':
             client = VpcClient.new_builder() \
                 .with_credentials(credentials) \
@@ -74,18 +66,12 @@ class Session:
                 .with_credentials(globalCredentials) \
                 .with_region(TmsRegion.value_of(self.tms_region)) \
                 .build()
-        elif service == 'iam':
+        elif service in ['org-policy','org-unit','org-account','organizations']:
             globalCredentials = GlobalCredentials(self.ak, self.sk)
-            client = IamClient.new_builder() \
+            client = OrganizationsClient.new_builder() \
                 .with_credentials(globalCredentials) \
-                .with_region(IamRegion.value_of(self.region)) \
-                .build()
-        elif service == 'config':
-            globalCredentials = GlobalCredentials(self.ak, self.sk)
-            client = ConfigClient.new_builder() \
-                .with_credentials(globalCredentials) \
-                .with_region(ConfigRegion.value_of(self.region)) \
-                .build()
+                .with_region(organizations_region.OrganizationsRegion.CN_NORTH_4) \
+                .build()    
         elif service == 'deh':
             client = DeHClient.new_builder() \
                 .with_credentials(credentials) \
@@ -109,8 +95,12 @@ class Session:
             request = ListVpcsRequest()
         elif service == 'evs':
             request = ListVolumesRequest()
-        elif service == 'config':
-            request = ShowTrackerConfigRequest()
+        elif service == 'org-policy':
+            request = ListPoliciesRequest()
+        elif service == 'org-unit':
+            request = ListOrganizationalUnitsRequest()
+        elif service == 'org-account':
+            request = ListAccountsRequest()
         elif service == 'deh':
             request = ListDedicatedHostsRequest()
         elif service == 'ces':
