@@ -6,7 +6,6 @@
 .terraform.lock.hcl
 # c7n/version.py
 src/
-dev/
 deps/
 include/
 lib/

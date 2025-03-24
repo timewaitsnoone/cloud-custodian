@@ -1,8 +1,0 @@
-policies:
-  - name: org-accounts-by-ous
-    resource: huaweicloud.org-account
-    filters:
-      - type: ou
-        units: 
-         - ou-45wgiopuu6mp05xi4ra1m9msn97fvvwe
-         - ou-wpl4rl17z5v9puqohfeqo8brezsta85t
