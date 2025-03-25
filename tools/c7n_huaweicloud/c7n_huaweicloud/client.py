@@ -81,9 +81,4 @@ class Session:
             request = ListOrganizationalUnitsRequest()
         elif service == 'org-account':
             request = ListAccountsRequest()
-        # elif service == 'ram':
-        #     request = SearchResourceShareAssociationsRequest()
-        #     request.body = SearchResourceShareAssociationsReqBody()
-        #     request.body.association_type = "principals"
-
         return request

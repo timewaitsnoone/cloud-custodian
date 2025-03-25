@@ -53,7 +53,6 @@ class ResourceQuery:
             response = self._invoke_client_enum(client, enum_op, request)
             res = jmespath.search(path, eval(
                 str(response).replace('null', 'None').replace('false', 'False').replace('true', 'True')))
-            log.info(f"client res : {res}")
             # replace id with the specified one
             if res is None or len(res) == 0:
                 return resources
