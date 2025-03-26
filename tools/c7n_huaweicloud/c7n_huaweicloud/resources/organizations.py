@@ -4,7 +4,17 @@
 import logging
 import json
 
-from huaweicloudsdkorganizations.v1 import *
+from huaweicloudsdkorganizations.v1 import (
+    PolicyTachReqBody,
+    AttachPolicyRequest,
+    TagDto,
+    CreatePolicyRequest,
+    CreatePolicyReqBody,
+    ListEntitiesRequest,
+    PolicySummaryDto,
+    ListPoliciesRequest,
+    ListRootsRequest,
+)
 from c7n.utils import type_schema
 from c7n.filters import Filter, ValueFilter, ListItemFilter
 from c7n.actions import Action
@@ -74,10 +84,10 @@ class SetPolicy(Action):
                     Version: "5.0"
                     Statement:
                         - Sid: RestrictedForOU
-                        Effect: Deny
-                        Action:
+                          Effect: Deny
+                          Action:
                             - "ecs:*"
-                        Resource:
+                          Resource:
                             - "*"
 
     .. code-block:: yaml
@@ -182,7 +192,6 @@ class OrgUnitFilter(ValueFilter):
     targetCache = {}
 
     def process(self, resources, event={'debug': True}):
-        client = local_session(self.manager.session_factory).client("org-unit")
         res = super().process(resources, event)
         return res
 
@@ -198,7 +207,7 @@ class OrgUnitFilter(ValueFilter):
             return False
 
         if parent_info[0].id == self.data['value'] or (
-            self.targetCache.get(parent_info[0].id, None) != None
+            self.targetCache.get(parent_info[0].id, None) is not None
             and self.targetCache[parent_info[0].id]
         ):
             self.targetCache[parent_info[0].id] = True

@@ -45,7 +45,7 @@ from huaweicloudsdksmn.v2 import SmnClient, ListTopicsRequest
 from huaweicloudsdknat.v2.region.nat_region import NatRegion
 from huaweicloudsdknat.v2 import ListNatGatewaysRequest, NatClient, \
     ListNatGatewaySnatRulesRequest, ListNatGatewayDnatRulesRequest
-from huaweicloudsdkorganizations.v1 import *
+from huaweicloudsdkorganizations.v1 import OrganizationsClient, ListAccountsRequest, ListOrganizationalUnitsRequest, ListPoliciesRequest
 from huaweicloudsdkorganizations.v1.region.organizations_region import OrganizationsRegion
 
 
@@ -189,12 +189,12 @@ class Session:
                 .with_credentials(credentials) \
                 .with_region(NatRegion.value_of(self.region)) \
                 .build()
-        elif service in ['org-policy','org-unit','org-account']:
+        elif service in ['org-policy', 'org-unit', 'org-account']:
             globalCredentials = GlobalCredentials(self.ak, self.sk)
             client = OrganizationsClient.new_builder() \
                 .with_credentials(globalCredentials) \
                 .with_region(OrganizationsRegion.value_of(self.region)) \
-                .build()    
+                .build()
 
         return client
 
@@ -210,7 +210,7 @@ class Session:
         elif service == 'deh':
             request = ListDedicatedHostsRequest()
         elif service == 'ces':
-            request = ListAlarmRulesRequest()        
+            request = ListAlarmRulesRequest()
         elif service == 'org-policy':
             request = ListPoliciesRequest()
         elif service == 'org-unit':
