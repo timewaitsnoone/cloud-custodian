@@ -81,6 +81,108 @@ interactions:
       - HWWAFSESID=9757c736bcf3c7385c; path=/
       Strict-Transport-Security:
       - max-age=31536000; includeSubdomains;
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - 39fce0b907ca7d6c4dae0d4824af2bbd
+      X-XSS-Protection:
+      - 1; mode=block;
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Host:
+      - organizations.myhuaweicloud.com
+      User-Agent:
+      - huaweicloud-usdk-python/3.0
+      X-Domain-Id:
+      - be4d8afe888888888888888888aa3072cf36
+      X-Sdk-Date:
+      - 20250326T092127Z
+    method: GET
+    uri: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=ou-egmx31wae8c7v72jrl71ow6pb0cqz4fi
+  response:
+    body:
+      string: '{"entities":[],"page_info":{"next_marker":null,"current_count":null}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 26 Mar 2025 09:21:28 GMT
+      Server:
+      - CloudWAF
+      Set-Cookie:
+      - HWWAFSESID=2011f73695d4277259; path=/
+      - HWWAFSESTIME=1742980888044; path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains;
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Request-Id:
+      - 3b10f847fadf18a2fcb1a027c8192eab
+      X-XSS-Protection:
+      - 1; mode=block;
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Host:
+      - organizations.myhuaweicloud.com
+      User-Agent:
+      - huaweicloud-usdk-python/3.0
+      X-Domain-Id:
+      - be4d8afe888888888888888888aa3072cf36
+      X-Sdk-Date:
+      - 20250326T092239Z
+    method: GET
+    uri: https://organizations.myhuaweicloud.com/v1/organizations/entities?parent_id=ou-wpl4rl17z5v9puqohfeqo8brezsta85t
+  response:
+    body:
+      string: '{"entities":[{"name":"fake_account_name","id":"8e5fe930d666666666666666602c","type":"account"}],"page_info":{"next_marker":null,"current_count":1}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 26 Mar 2025 09:22:40 GMT
+      Server:
+      - CloudWAF
+      Set-Cookie:
+      - HWWAFSESID=2b14b73a28b19109d4; path=/
+      - HWWAFSESTIME=1742980960085; path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains;
       Transfer-Encoding:
       - chunked
       X-Content-Type-Options:
@@ -90,7 +192,7 @@ interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Request-Id:
-      - 39fce0b907ca7d6c4dae0d4824af2bbd
+      - 2bbee3d4729c8a5a2fb89d4657cbbb5b
       X-XSS-Protection:
       - 1; mode=block;
     status:
