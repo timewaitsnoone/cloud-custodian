@@ -212,6 +212,7 @@ version = "3.1.140"
 description = "COC"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+groups = ["main"]
 files = [
     {file = "huaweicloudsdkcoc-3.1.140-py2.py3-none-any.whl", hash = "sha256:5d428d78322ca2718dc89c774986437befd13faff59c4507b610c2a2fa6eb48f"},
 ]
@@ -458,6 +459,20 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 groups = ["main"]
 files = [
     {file = "huaweicloudsdkobs-3.1.140-py2.py3-none-any.whl", hash = "sha256:e83e69767d152dcf01334fc5758c29efe689e0a4dc875b4ac503846ad707f790"},
+]
+
+[package.dependencies]
+huaweicloudsdkcore = ">=3.1.140"
+
+[[package]]
+name = "huaweicloudsdkorganizations"
+version = "3.1.140"
+description = "Organizations"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+groups = ["main"]
+files = [
+    {file = "huaweicloudsdkorganizations-3.1.140-py2.py3-none-any.whl", hash = "sha256:e9910c50912ca0dc50cea33e1017e4e7510c6977eb15c57817125e940f154143"},
 ]
 
 [package.dependencies]
@@ -1080,4 +1095,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.8"
-content-hash = "d3f32cfa075845a8d6063f3f38d9351080f4af50455ddecb25e1907ce05a6e42"
+content-hash = "0af6d08931739276f740e66a0e4c888e1aa7f762cf41f710a2535b42fea69768"
