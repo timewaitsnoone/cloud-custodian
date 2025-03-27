@@ -3,8 +3,6 @@
 import os
 from huaweicloud_common import BaseTest
 
-os.environ['HUAWEI_DEFAULT_REGION'] = 'cn-north-4'
-
 
 class OrganizationsTest(BaseTest):
 

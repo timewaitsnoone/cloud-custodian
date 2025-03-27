@@ -222,7 +222,7 @@ class Session:
             globalCredentials = GlobalCredentials(self.ak, self.sk)
             client = OrganizationsClient.new_builder() \
                 .with_credentials(globalCredentials) \
-                .with_region(OrganizationsRegion.value_of(self.region)) \
+                .with_region(OrganizationsRegion.CN_NORTH_4) \
                 .build()
 
         return client
