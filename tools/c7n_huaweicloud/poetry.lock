@@ -451,14 +451,14 @@ files = [
 huaweicloudsdkcore = ">=3.1.140"
 
 [[package]]
-name = "huaweicloudsdkorganizations"
+name = "huaweicloudsdksfsturbo"
 version = "3.1.140"
-description = "Organizations"
+description = "SFSTurbo"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 groups = ["main"]
 files = [
-    {file = "huaweicloudsdkorganizations-3.1.140-py2.py3-none-any.whl", hash = "sha256:e9910c50912ca0dc50cea33e1017e4e7510c6977eb15c57817125e940f154143"},
+    {file = "huaweicloudsdksfsturbo-3.1.140-py2.py3-none-any.whl", hash = "sha256:82030baeca6ed15fecd5ce650d98f3cf77fc48e47c44598999086f4a81188958"},
 ]
 
 [package.dependencies]
@@ -1067,4 +1067,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.8"
-content-hash = "77e8f065ed68ac97dbeb8afdc2855dbb5d3c7dda233727cfb3d13943833d4308"
+content-hash = "d3f32cfa075845a8d6063f3f38d9351080f4af50455ddecb25e1907ce05a6e42"
