@@ -45,7 +45,8 @@ from huaweicloudsdksmn.v2 import SmnClient, ListTopicsRequest
 from huaweicloudsdknat.v2.region.nat_region import NatRegion
 from huaweicloudsdknat.v2 import ListNatGatewaysRequest, NatClient, \
     ListNatGatewaySnatRulesRequest, ListNatGatewayDnatRulesRequest
-from huaweicloudsdkorganizations.v1 import OrganizationsClient, ListAccountsRequest, ListOrganizationalUnitsRequest, ListPoliciesRequest
+from huaweicloudsdkorganizations.v1 import OrganizationsClient, ListAccountsRequest, \
+    ListOrganizationalUnitsRequest, ListPoliciesRequest
 from huaweicloudsdkorganizations.v1.region.organizations_region import OrganizationsRegion
 
 
